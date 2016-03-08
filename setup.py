@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import os
 from distutils.core import setup
 from sys import maxsize
 from shutil import copyfile
@@ -10,6 +11,9 @@ if maxsize == 2147483647:
 # ... or 64-bit processors
 elif maxsize == 9223372036854775807:
     copyfile("xflux64", "xflux")
+
+# Set execution permission
+os.chmod("xflux", 0755)
 
 setup(name = "f.lux indicator applet",
     version = "1.1.8",
